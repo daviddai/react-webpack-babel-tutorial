@@ -1,0 +1,7 @@
+task webpack(type: Exec) {
+    inputs.file("yarn.lock")
+    inputs.dir("./")
+
+    outputs.dir("./dist")
+    commandLine "yarn", "build"
+}
