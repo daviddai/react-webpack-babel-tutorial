@@ -9,7 +9,8 @@
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js --open",
     "start-prod": "webpack-dev-server --config webpack.prod.js --open",
-    "build": "webpack --config webpack.prod.js"
+    "build-dev": "webpack --config webpack.dev.js",
+    "build-prod": "webpack --config webpack.prod.js"
   },
   "dependencies": {
     "react": "^16.13.1",
