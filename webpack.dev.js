@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const merge = require("webpack-merge");
 const common = require("./webpack.common");
 
-module.exports = merge(common, {
+module.exports = [merge(common, {
     mode: "development",
     output: {
         filename: "[name].bundle.js",
@@ -26,4 +26,12 @@ module.exports = merge(common, {
             }
         ]
     }
-});
+}), {
+    target: "node",
+    mode: "development",
+    entry: "./src/server.tsx",
+    output: {
+        path: path.resolve(__dirname, 'dist/server'),
+        filename: 'server.js'
+    }
+}];
