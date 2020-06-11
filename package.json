@@ -1,0 +1,42 @@
+{
+  "name": "react-webpack-babel-tutorial",
+  "version": "1.0.0",
+  "description": "react webpack babel tutorial",
+  "main": "index.js",
+  "author": "david dai",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start-dev": "webpack-dev-server --config webpack.dev.js --open",
+    "start-prod": "webpack-dev-server --config webpack.prod.js --open",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-typescript": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "bootstrap": "^4.5.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.5.3",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "jquery": "^3.5.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "popper.js": "^1.16.1",
+    "sass-loader": "^8.0.2",
+    "save": "^2.4.0",
+    "style-loader": "^1.2.1",
+    "terser-webpack-plugin": "^3.0.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  }
+}
