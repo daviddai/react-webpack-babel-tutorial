@@ -5,7 +5,7 @@ export default function App() {
     const greeting: string = "Hello World from React Webpack Babel Tutorial";
     return (
         <>
-            <div class="font-weight-bolder">
+            <div className="font-weight-bolder">
                 {greeting}
             </div>
         </>

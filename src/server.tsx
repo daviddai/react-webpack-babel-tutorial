@@ -1,12 +1,29 @@
 // @ts-ignore
 import express from "express";
+// @ts-ignore
+import path from "path";
 import React from "react";
-import { renderToString } from "react-dom/server";
+// @ts-ignore
+import fs from "fs";
+// import { renderToString } from "react-dom/server";
 
 const app = express();
 
+app.use(express.static("dist"));
+
 app.get("/ping", (req, res) => {
    res.send("pong");
+});
+
+app.get("/", (req, res) => {
+   fs.readFile("index.html", (err, html) => {
+      if (err) {
+         console.log(err);
+         throw err;
+      } else {
+         res.send(html);
+      }
+   });
 });
 
 app.listen(5000, () => {

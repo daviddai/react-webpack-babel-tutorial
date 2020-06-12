@@ -31,7 +31,7 @@ module.exports = [merge(common, {
     mode: "development",
     entry: "./src/server.tsx",
     output: {
-        path: path.resolve(__dirname, 'dist/server'),
+        path: path.resolve(__dirname, 'dist'),
         filename: 'server.js'
     }
 }];
