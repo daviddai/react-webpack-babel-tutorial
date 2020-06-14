@@ -30,6 +30,18 @@ module.exports = [merge(common, {
     target: "node",
     mode: "development",
     entry: "./src/server.tsx",
+    module: {
+        rules: [
+            {
+                test: /\.(ts|js)x?/,
+                exclude: /node_modules/,
+                use: {
+                    // use babel-loader to load jsx or tsx
+                    loader: "babel-loader"
+                }
+            }
+        ]
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'server.js'

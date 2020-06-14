@@ -1,11 +1,10 @@
 // @ts-ignore
 import express from "express";
 // @ts-ignore
-import path from "path";
-import React from "react";
-// @ts-ignore
 import fs from "fs";
-// import { renderToString } from "react-dom/server";
+import React from "react";
+import { renderToString } from 'react-dom/server';
+import Application from "./app/Application";
 
 const app = express();
 
@@ -26,6 +25,22 @@ app.get("/", (req, res) => {
    });
 });
 
+app.get("/ssr", (req, res) => {
+   res.send(getRendered(renderToString(<Application/>)));
+});
+
 app.listen(5000, () => {
    console.log("Server is now running and listening on port 5000....");
 });
+
+const getRendered = (body: string) => `
+   <!DOCTYPE html>
+    <html>
+        <head></head>
+        <body>
+            <div id="app">
+                ${body}
+            </div>
+        </body>
+    </html>
+`;
