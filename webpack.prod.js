@@ -11,13 +11,13 @@ module.exports = merge(common, {
     mode: "production",
     output: {
         filename: "[name].[contentHash].bundle.js",
-        path: path.join(__dirname, "/dist")
+        path: path.join(__dirname, "dist/client")
     },
     optimization: {
         minimizer: [
             new TerserPlugin(),
             new HtmlWebpackPlugin({
-                template: "./src/index.html",
+                template: "./src/client/index.html",
                 minify: {
                     removeAttributeQuotes: true,
                     collapseWhitespace: true,

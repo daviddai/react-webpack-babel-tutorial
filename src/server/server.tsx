@@ -2,20 +2,22 @@
 import express from "express";
 // @ts-ignore
 import fs from "fs";
+// @ts-ignore
+import path from "path";
 import React from "react";
 import { renderToString } from 'react-dom/server';
-import Application from "./app/Application";
+import Application from "../app/Application";
 
 const app = express();
 
-app.use(express.static("dist"));
+app.use(express.static("dist/server"));
 
 app.get("/ping", (req, res) => {
    res.send("pong");
 });
 
 app.get("/", (req, res) => {
-   fs.readFile("index.html", (err, html) => {
+   fs.readFile(__dirname + "../../dist/client/index.html", (err, html) => {
       if (err) {
          console.log(err);
          throw err;
@@ -26,21 +28,17 @@ app.get("/", (req, res) => {
 });
 
 app.get("/ssr", (req, res) => {
-   res.send(getRendered(renderToString(<Application/>)));
+   fs.readFile(path.join(__dirname, "../../dist/server/index.html"), (err, html) => {
+      if (err) {
+         console.log(err);
+         throw err;
+      } else {
+         const body: string = renderToString(<Application/>);
+         res.send(html.toString().replace("${body}", body));
+      }
+   });
 });
 
 app.listen(5000, () => {
    console.log("Server is now running and listening on port 5000....");
 });
-
-const getRendered = (body: string) => `
-   <!DOCTYPE html>
-    <html>
-        <head></head>
-        <body>
-            <div id="app">
-                ${body}
-            </div>
-        </body>
-    </html>
-`;
