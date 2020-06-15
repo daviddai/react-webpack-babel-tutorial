@@ -11,23 +11,26 @@ import Application from "../app/Application";
 const app = express();
 
 app.use(express.static("dist/server"));
+app.use(express.static("dist/client"));
 
 app.get("/ping", (req, res) => {
    res.send("pong");
 });
 
-app.get("/", (req, res) => {
-   fs.readFile(__dirname + "../../dist/client/index.html", (err, html) => {
+app.get("/csr", (req, res) => {
+   console.log("request called at entry: /csr");
+   fs.readFile(path.join(__dirname, "../../dist/client/index.html"), (err, html) => {
       if (err) {
          console.log(err);
          throw err;
       } else {
-         res.send(html);
+         res.send(html.toString());
       }
    });
 });
 
 app.get("/ssr", (req, res) => {
+   console.log("request called at entry: /ssr");
    fs.readFile(path.join(__dirname, "../../dist/server/index.html"), (err, html) => {
       if (err) {
          console.log(err);
