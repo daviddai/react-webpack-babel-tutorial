@@ -2,9 +2,10 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const merge = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const common = require("./webpack.ssr.common");
+const clientCommon = require("./webpack.ssr.client.common");
+const serverCommon = require("./webpack.ssr.server.common");
 
-module.exports = [merge(common, {
+module.exports = [merge(serverCommon, {
     target: "node",
     node: {
         __dirname: true
@@ -20,11 +21,11 @@ module.exports = [merge(common, {
             filename: "[name].css"
         }),
     ]
-}), merge(common, {
+}), merge(clientCommon, {
     mode: "development",
     entry: "./src/server/index.tsx",
     output: {
-        filename: "main.bundle.js",
+        filename: "client.bundle.js",
         path: path.join(__dirname, "dist/server")
     },
     plugins: [
