@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const merge = require("webpack-merge");
-const common = require("./webpack.common");
+const common = require("./webpack.csr.common");
 
 module.exports = merge(common, {
     mode: "development",

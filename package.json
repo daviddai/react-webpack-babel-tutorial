@@ -7,10 +7,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start-dev": "webpack-dev-server --config webpack.dev.js --open",
-    "start-prod": "webpack-dev-server --config webpack.prod.js --open",
-    "build-dev": "webpack --config webpack.dev.js",
-    "build-prod": "webpack --config webpack.prod.js",
+    "start-dev": "webpack-dev-server --config webpack.csr.dev.js --open",
+    "start-prod": "webpack-dev-server --config webpack.csr.prod.js --open",
+    "build-dev": "webpack --config webpack.csr.dev.js",
+    "build-prod": "webpack --config webpack.csr.prod.js",
     "build-ssr-dev": "webpack --config webpack.ssr.dev.js"
   },
   "dependencies": {

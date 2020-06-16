@@ -5,7 +5,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const merge = require("webpack-merge");
-const common = require("./webpack.common");
+const common = require("./webpack.csr.common");
 
 module.exports = merge(common, {
     mode: "production",

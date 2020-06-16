@@ -16,7 +16,7 @@ app.get("/ping", (req, res) => {
    res.send("pong");
 });
 
-app.get("/ssr", (req, res) => {
+app.get("/index", (req, res) => {
    fs.readFile(path.join(__dirname, "../../dist/server/index.html"), (err, html) => {
       if (err) {
          console.log(err);
