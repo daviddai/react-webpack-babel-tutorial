@@ -14,7 +14,7 @@ export default function Application() {
                 {greeting}
             </div>
             <div>
-                <button onClick={() => showGreeting()}>Click to see greeting message</button>
+                <button className="btn-primary" onClick={() => showGreeting()}>Click to see greeting message</button>
             </div>
         </>
     );
