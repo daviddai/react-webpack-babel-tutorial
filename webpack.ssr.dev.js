@@ -15,12 +15,7 @@ module.exports = [merge(serverCommon, {
     output: {
         filename: "server.bundle.js",
         path: path.join(__dirname, "dist/server")
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: "[name].css"
-        }),
-    ]
+    }
 }), merge(clientCommon, {
     mode: "development",
     entry: "./src/server/index.tsx",
